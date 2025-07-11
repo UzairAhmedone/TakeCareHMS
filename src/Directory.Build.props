@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <ImportDirectoryBuildProps>true</ImportDirectoryBuildProps>
+    <RootNamespace>TakeCareHms</RootNamespace>
+  </PropertyGroup>
+</Project>
