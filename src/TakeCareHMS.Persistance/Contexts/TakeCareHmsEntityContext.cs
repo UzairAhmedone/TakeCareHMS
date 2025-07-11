@@ -1,5 +1,10 @@
-﻿namespace TakeCareHMS.Persistance;
+﻿using Microsoft.EntityFrameworkCore;
 
-public class TakeCareHmsEntityContext
+namespace TakeCareHMS.Persistance;
+
+public class TakeCareHmsEntityContext : DbContext
 {
+    public TakeCareHmsEntityContext(DbContextOptions<TakeCareHmsEntityContext> context) : base(context)
+    {       
+    }
 }
