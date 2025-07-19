@@ -14,4 +14,8 @@
     <ProjectReference Include="..\..\TakeCareHMS.Domain\TakeCareHMS.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ModelConfigurations\" />
+  </ItemGroup>
+
 </Project>

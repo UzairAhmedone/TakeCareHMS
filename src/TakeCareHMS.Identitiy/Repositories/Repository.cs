@@ -36,29 +36,14 @@ internal class Repository<TEntity> : IRepository<TEntity> where TEntity : class,
         _dbContext.Set<TEntity>().RemoveRange(entities);
         _ = await _dbContext.SaveChangesAsync();
     }
-    //public async Task DeleteByIdAsync(int id)
-    //{
-    //    var entity = await _dbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id);
-
-    //    if (entity != null)
-    //    {
-    //        _dbContext.Remove(entity);
-    //        await _dbContext.SaveChangesAsync();
-    //    }
-    //}
-
+   
     public async Task<TEntity> UpdateAsync(TEntity entity)
     {
         _dbContext.Entry(entity).State = EntityState.Modified;
         _ = await _dbContext.SaveChangesAsync();
         return entity;
     }
-    //public async Task UpdateAsync(List<TEntity> entity)
-    //{
-    //    _dbContext.Entry(entity).State = EntityState.Modified;
-    //    _ = await _dbContext.SaveChangesAsync();
-    //}
-
+    
     public virtual async Task<IList<TEntity>> GetAllAsync(params Expression<Func<TEntity, bool>>[] wheres)
     {
         IQueryable<TEntity> query = _dbContext.Set<TEntity>();

@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TakeCareHMS.Identitiy\TakeCareHMS.Identitiy.csproj" />
+    <ProjectReference Include="..\TakeCareHms.Services\TakeCareHms.Services.csproj" />
   </ItemGroup>
 
 </Project>
