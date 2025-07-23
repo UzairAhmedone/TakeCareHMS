@@ -30,6 +30,7 @@ builder.Services.AddOpenApi();
 
 
 
+builder.Services.AddPersistanceServices(builder.Configuration);
 builder.Services.AddHmsServices();
 
 var app = builder.Build();

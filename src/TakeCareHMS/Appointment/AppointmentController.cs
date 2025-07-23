@@ -14,8 +14,9 @@ public class AppointmentController : ControllerBase
     }
     
     [HttpPost("book")]
-    public IActionResult Book()
+    public IActionResult Book(AppointmentRequest request)
     {
+        appointmentService.BookAsync(request);
         return Ok();
     }
 

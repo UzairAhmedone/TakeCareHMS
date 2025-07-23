@@ -18,6 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TakeCareHms.Model\TakeCareHms.Model.csproj" />
+    <ProjectReference Include="..\TakeCareHMS.Persistance\TakeCareHMS.Persistance.csproj" />
     <ProjectReference Include="..\TakeCareHms.Services\TakeCareHms.Services.csproj" />
   </ItemGroup>
 

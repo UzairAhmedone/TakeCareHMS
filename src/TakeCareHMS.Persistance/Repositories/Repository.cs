@@ -13,7 +13,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
         this.context = context;
     }
 
-    public async Task<DbResults> AddAsync(TEntity entity, CancellationToken cancellationToken)
+    public async Task<DbResults> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         var results = new DbResults();
         if (entity == null)
@@ -36,7 +36,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 
         return results;
     }
-    public async Task<DbResults> DeleteAsync(TEntity entity, CancellationToken cancellationTokens)
+    public async Task<DbResults> DeleteAsync(TEntity entity, CancellationToken cancellationTokens = default)
     {
         var results = new DbResults();
         try
@@ -51,13 +51,13 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
         return results;
     }
 
-    public async Task<TEntity?> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationTokens)
+    public async Task<TEntity?> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationTokens = default)
     {
         return await context.Set<TEntity>()
                             .FirstOrDefaultAsync<TEntity>(predicate, cancellationTokens);
     }
 
-    public async Task<DbResults> UpdateAsync(TEntity entity, CancellationToken cancellationTokens)
+    public async Task<DbResults> UpdateAsync(TEntity entity, CancellationToken cancellationTokens = default)
     {
         var results = new DbResults();
         try

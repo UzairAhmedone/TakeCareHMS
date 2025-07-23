@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace TakeCareHms.Appointment;
 
-namespace TakeCareHms.Appointment
+public interface IAppointmentService
 {
-    public interface IAppointmentService
-    {
-    }
+    Task BookAsync(AppointmentRequest request, CancellationToken cancellationToken = default);
 }
