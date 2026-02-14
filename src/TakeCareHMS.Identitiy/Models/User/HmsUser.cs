@@ -10,7 +10,6 @@ public class HmsUser : IdentityUser
     public string FullName { get; set; } = string.Empty;
 
     private int age;
-    [Required]
     public int Age
     {
         get { return age; }

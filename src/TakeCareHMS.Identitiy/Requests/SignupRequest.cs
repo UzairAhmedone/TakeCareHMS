@@ -1,14 +1,18 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using TakeCareHMS.Profiles;
+using System.Numerics;
 using TakeCareHMS.User;
 namespace TakeCareHMS.Identitiy;
 
 public class SignupRequest
 {
     [Required]
-    public string FullName { get; set; } = string.Empty;
+    public string FirstName { get; set; } = string.Empty;
 
+    [Required]
+    public string LastName { get; set; } = string.Empty;
+
+    public string FullName { get{ return $"{FirstName} {LastName}"; }}
     [Required]
     [PasswordPropertyText]
     public string Password { get; set; } = string.Empty;
@@ -46,12 +50,17 @@ public class SignupRequest
     [Required]
     public string PhoneNumber { get; set; } = string.Empty;
     public Gender Gender { get; set; }
-    public HmsRoles Role { get; set; }
+    public HmsRoles Role { get; set; } = HmsRoles.Patients;
+    // Conditional profiles (only one will be populated)
+    public DoctorSignUpRequest? DoctorProfile { get; set; }
+    public NurseSignUpRequest? NurseProfile { get; set; }
+    public PharmacistSignUpRequest? PharmacistProfile { get; set; }
+    public LabTechnicianSignUpRequest? LabTechnicianProfile { get; set; }
     public static implicit operator HmsUser(SignupRequest request)
     {
         return new HmsUser
         {
-            Age = request.age,
+            Age = request.Age,
             Street = request.Street,
             PlotNo = request.PlotNo,
             FlatNo = request.FlatNo,
@@ -60,9 +69,31 @@ public class SignupRequest
             City = request.City,
             Email = request.Email,
             FullName = request.FullName,
+            UserName = request.UserName,
             PhoneNumber = request.PhoneNumber,
             Nationality = request.Nationality,
-            UserName = request.UserName,
+
+            Doctor = request.DoctorProfile == null ? null : new DoctorProfile
+            {
+                Specialization = request.DoctorProfile.Specialization,
+                LicenseNo = request.DoctorProfile.LicenseNo
+            },
+
+            Nurse = request.NurseProfile == null ? null : new NurseProfile
+            {
+                Specialization = request.NurseProfile.Specialization,
+                LicenseNo = request.NurseProfile.LicenseNo
+            },
+
+            Pharmacist = request.PharmacistProfile == null ? null : new PharmacistProfile
+            {
+                LicenseNo = request.PharmacistProfile.LicenseNo
+            },
+
+            LabTechnician = request.LabTechnicianProfile == null ? null : new LabTechnicianProfile
+            {
+                Certification = request.LabTechnicianProfile.Certification
+            }
         };
     }
 }

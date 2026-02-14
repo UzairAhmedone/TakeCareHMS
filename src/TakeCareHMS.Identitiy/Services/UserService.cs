@@ -128,7 +128,7 @@ public class UserService : IUserService
             var userClaims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
-                new Claim(ClaimTypes.Name, request.UserName),
+                new Claim(ClaimTypes.Name, request.FullName),
                 new Claim(ClaimTypes.Email, request.Email),
                 new Claim(ClaimTypes.Role, request.Role.GetEnumDescription())
             };
@@ -139,13 +139,13 @@ public class UserService : IUserService
             {
                 await roleManager.CreateAsync(new IdentityRole(request.Role.GetEnumDescription()));
             }
-            await userManager.CreateAsync(user, request.Password);
-            await userManager.AddToRoleAsync(user, request.Role.GetEnumDescription());
-            await signInManager.SignInAsync(user, new AuthenticationProperties
+            var res = await userManager.CreateAsync(user, request.Password);
+            if (!res.Succeeded)
             {
-                IsPersistent = true,
-                ExpiresUtc = DateTime.UtcNow.AddHours(1)
-            });
+                results.AddUserError(res?.Errors?.FirstOrDefault()?.Description);
+                return results;
+            }
+            await userManager.AddToRoleAsync(user, request.Role.GetEnumDescription());
 
             var token = tokenService.GenerateToken(user, userClaims);
             results.Token = token;

@@ -27,11 +27,10 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-
-
-
+/// HMS Services
 builder.Services.AddPersistanceServices(builder.Configuration);
 builder.Services.AddHmsServices();
+builder.Services.AddIdentityServices(builder.Configuration);
 
 var app = builder.Build();
 
