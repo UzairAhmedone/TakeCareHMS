@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeCareHMS.Persistance", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeCareHMS", "src\TakeCareHMS\TakeCareHMS.csproj", "{3C55071B-4435-4985-A64E-494584783ECE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeCareHMS.Admin", "src\TakeCareHMS.Admin\TakeCareHMS.Admin.csproj", "{80408F93-2188-448D-A4FD-B9506B4A6E3E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeCareHMS.Common", "src\TakeCareHMS.Common\TakeCareHMS.Common.csproj", "{44C72AAC-0413-442D-8E6D-5B6C2D4A3F37}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeCareHMS.Identitiy", "src\TakeCareHMS.Identitiy\TakeCareHMS.Identitiy.csproj", "{6B16A1CA-35F6-46B7-91F7-4E0EB3E4B195}"
@@ -35,10 +33,6 @@ Global
 		{3C55071B-4435-4985-A64E-494584783ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C55071B-4435-4985-A64E-494584783ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C55071B-4435-4985-A64E-494584783ECE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80408F93-2188-448D-A4FD-B9506B4A6E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80408F93-2188-448D-A4FD-B9506B4A6E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80408F93-2188-448D-A4FD-B9506B4A6E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80408F93-2188-448D-A4FD-B9506B4A6E3E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{44C72AAC-0413-442D-8E6D-5B6C2D4A3F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{44C72AAC-0413-442D-8E6D-5B6C2D4A3F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44C72AAC-0413-442D-8E6D-5B6C2D4A3F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
